@@ -20,6 +20,8 @@ namespace Site
             }
 
             app.UseStatusCodePages();
+            app.UseStaticFiles();
+
 
             app.UseRouting();
 
