@@ -19,6 +19,8 @@ namespace Site
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStatusCodePages();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints => endpoints.MapControllerRoute(
