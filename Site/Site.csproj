@@ -16,8 +16,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Razor.Tools" Version="1.1.0-preview4-final" />
-		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Razor.Tools" Version="1.1.0-preview4-final" ExcludeAssets="All" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" ExcludeAssets="All" />
 	</ItemGroup>
 
 </Project>
