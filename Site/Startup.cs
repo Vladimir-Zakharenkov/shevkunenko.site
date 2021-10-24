@@ -5,6 +5,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.WebEncoders;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using Site.Models;
+
 
 namespace Site
 {
@@ -16,6 +18,8 @@ namespace Site
 
             services.Configure<WebEncoderOptions>(options =>
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
+
+            services.AddTransient<ITitleOfPageRepository, FakeTitleOfPageRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
