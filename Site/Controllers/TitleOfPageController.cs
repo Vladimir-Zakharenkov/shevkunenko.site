@@ -10,9 +10,6 @@ namespace Site.Controllers
         {
             repository = repo;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult List() => View(repository.TitleOfPages);
     }
 }
