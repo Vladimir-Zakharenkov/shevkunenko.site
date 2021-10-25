@@ -6,6 +6,7 @@ using Microsoft.Extensions.WebEncoders;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 using Site.Models;
 
 
@@ -23,10 +24,15 @@ namespace Site
         {
             services.AddControllersWithViews();
 
+            services.AddDbContext<TitleOfPageDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration["Data:SiteTitleOfPages:ConnectionString"]));
+
             services.Configure<WebEncoderOptions>(options =>
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
 
-            services.AddTransient<ITitleOfPageRepository, FakeTitleOfPageRepository>();
+            //services.AddTransient<ITitleOfPageRepository, FakeTitleOfPageRepository>();
+            services.AddTransient<ITitleOfPageRepository, EFTitleOfPageRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
