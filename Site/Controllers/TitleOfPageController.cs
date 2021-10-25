@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using Site.Models;
 
 namespace Site.Controllers
@@ -11,6 +12,6 @@ namespace Site.Controllers
             repository = repo;
         }
 
-        public IActionResult List() => View(repository.TitleOfPages);
+        public IActionResult List() => View(repository.TitleOfPages.OrderBy(x => x.NumberOfPage));
     }
 }
