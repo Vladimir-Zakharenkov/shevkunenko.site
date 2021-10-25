@@ -24,21 +24,16 @@ namespace Site
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<TitleOfPageDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration["Data:SiteTitleOfPages:ConnectionStrings"]));
-
             #region connectionSting
 
+            /*
             string connectionSting = Configuration.GetConnectionString("TitleOfPageContext");
 
             services.AddDbContext<TitleOfPageDbContext>(options => options.UseSqlServer(connectionSting));
-
-            /*
-            services.AddDbContext<TitleOfPageDbContext>(options =>
-               options.UseSqlServer(
-                   Configuration["Data:SiteTitleOfPages:ConnectionString"]));
             */
+
+            services.AddDbContext<TitleOfPageDbContext>(options =>
+               options.UseSqlServer(Configuration["ConnectionStrings:TitleOfPageContext"]));
 
             #endregion
 
@@ -65,6 +60,8 @@ namespace Site
             app.UseEndpoints(endpoints => endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Site}/{action=Shef}/{id:int:min(1)?}"));
+
+            SeedData.EnsurePopulated(app);
         }
     }
 }
