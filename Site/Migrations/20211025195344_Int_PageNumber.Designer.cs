@@ -10,8 +10,8 @@ using Site.Models;
 namespace Site.Migrations
 {
     [DbContext(typeof(TitleOfPageDbContext))]
-    [Migration("20211025170659_Initial")]
-    partial class Initial
+    [Migration("20211025195344_Int_PageNumber")]
+    partial class Int_PageNumber
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,8 +27,8 @@ namespace Site.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("PageNumber")
-                        .HasColumnType("bigint");
+                    b.Property<int>("PageNumber")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Site.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Int_PageNumber : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace Site.Migrations
                 columns: table => new
                 {
                     TitleOfPageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PageNumber = table.Column<long>(type: "bigint", nullable: false),
+                    PageNumber = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
