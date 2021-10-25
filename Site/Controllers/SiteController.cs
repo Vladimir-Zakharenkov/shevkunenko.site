@@ -1,12 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Site.Models;
+using System.Linq;
 
 namespace Site.Controllers
 {
     public class SiteController : Controller
     {
-        public IActionResult Shef()
+        private ITitleOfPageRepository repository;
+
+        public SiteController(ITitleOfPageRepository repo)
         {
-            return View();
+            repository = repo;
+
+        }
+        public IActionResult Shef(uint id)
+        {
+
+            return View(repository.TitleOfPages.Where(x => x.NumberOfPage == id));
         }
     }
 }

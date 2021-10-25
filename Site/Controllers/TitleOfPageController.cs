@@ -12,6 +12,6 @@ namespace Site.Controllers
             repository = repo;
         }
 
-        public IActionResult List() => View(repository.TitleOfPages.OrderBy(x => x.NumberOfPage));
+        public IActionResult List(uint id) => View(repository.TitleOfPages.Where(x => x.NumberOfPage == id));
     }
 }
