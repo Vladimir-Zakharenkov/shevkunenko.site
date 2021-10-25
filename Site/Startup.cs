@@ -59,7 +59,7 @@ namespace Site
 
             app.UseEndpoints(endpoints => endpoints.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Site}/{action=Shef}/{id:int:min(1)=1}"));
+                pattern: "{controller=Site}/{action=Shef}/{id:int:min(1):max(5)=1}"));
 
             SeedData.EnsurePopulated(app);
         }
