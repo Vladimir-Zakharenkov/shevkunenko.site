@@ -25,7 +25,7 @@ namespace Site.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("NumberOfPage")
+                    b.Property<long>("PageNumber")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Title")

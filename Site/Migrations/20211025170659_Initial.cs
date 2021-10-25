@@ -12,7 +12,7 @@ namespace Site.Migrations
                 columns: table => new
                 {
                     TitleOfPageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    NumberOfPage = table.Column<long>(type: "bigint", nullable: false),
+                    PageNumber = table.Column<long>(type: "bigint", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>

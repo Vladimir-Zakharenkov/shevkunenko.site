@@ -16,7 +16,7 @@ namespace Site.Controllers
         public IActionResult Shef(uint id)
         {
 
-            return View(repository.TitleOfPages.Where(x => x.NumberOfPage == id).FirstOrDefault());
+            return View(repository.TitleOfPages.Where(x => x.PageNumber == id).FirstOrDefault());
         }
     }
 }
