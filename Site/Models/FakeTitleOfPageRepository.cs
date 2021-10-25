@@ -11,32 +11,32 @@ namespace Site.Models
             new TitleOfPage
              {
                 TitleOfPageId = Guid.NewGuid(),
-                NumberOfPage = 0,
+                NumberOfPage = 1,
                 Title = "Сайт, посвященный Сергею Шевкуненко"
 
             },
             new TitleOfPage
             {
                 TitleOfPageId = Guid.NewGuid(),
-                NumberOfPage = 1,
+                NumberOfPage = 2,
                 Title = "Сергей Шевкуненко - фильмы, книги, статьи, фото"
             },
             new TitleOfPage
             {
                 TitleOfPageId = Guid.NewGuid(),
-                NumberOfPage = 2,
+                NumberOfPage = 3,
                 Title = "Шевкуненко Сергей Юрьевич - биография"
             },
             new TitleOfPage
             {
                 TitleOfPageId = Guid.NewGuid(),
-                NumberOfPage = 3,
+                NumberOfPage = 4,
                 Title = "Фильм «Криминальная звезда» смотреть online"
             },
             new TitleOfPage
             {
                 TitleOfPageId = Guid.NewGuid(),
-                NumberOfPage = 4,
+                NumberOfPage = 5,
                 Title = "Фильмы с участием Сергея Шевкуненко - смотреть online"
             }
         }.AsQueryable<TitleOfPage>();
