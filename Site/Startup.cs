@@ -37,7 +37,7 @@ namespace Site
 
             app.UseEndpoints(endpoints => endpoints.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Site}/{action=Shef}/{id?}"));
+                pattern: "{controller=Site}/{action=Shef}/{id:int:min(1)?}"));
         }
     }
 }
