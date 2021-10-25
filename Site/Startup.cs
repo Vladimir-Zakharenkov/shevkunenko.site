@@ -26,7 +26,21 @@ namespace Site
 
             services.AddDbContext<TitleOfPageDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration["Data:SiteTitleOfPages:ConnectionString"]));
+                    Configuration["Data:SiteTitleOfPages:ConnectionStrings"]));
+
+            #region connectionSting
+
+            string connectionSting = Configuration.GetConnectionString("TitleOfPageContext");
+
+            services.AddDbContext<TitleOfPageDbContext>(options => options.UseSqlServer(connectionSting));
+
+            /*
+            services.AddDbContext<TitleOfPageDbContext>(options =>
+               options.UseSqlServer(
+                   Configuration["Data:SiteTitleOfPages:ConnectionString"]));
+            */
+
+            #endregion
 
             services.Configure<WebEncoderOptions>(options =>
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
