@@ -57,9 +57,16 @@ namespace Site
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints => endpoints.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Site}/{action=Shef}/{id:int:min(1):max(5)=1}"));
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "admin",
+                  pattern: "Admin/{controller=TitleOfPage}/{action=Edit}");
+
+                endpoints.MapControllerRoute(
+                  name: "default",
+                  pattern: "{controller=Site}/{action=Shef}/{id:int:min(1):max(5)=1}");
+            });
 
             SeedData.EnsurePopulated(app);
         }
