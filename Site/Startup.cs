@@ -59,9 +59,10 @@ namespace Site
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                  name: "admin",
-                  pattern: "Admin/{controller=TitleOfPage}/{action=Edit}");
+                endpoints.MapAreaControllerRoute(
+                  name: "Admin_area",
+                  areaName: "Admin",
+                  pattern: "Admin/{controller=Home}/{action=Index}");
 
                 endpoints.MapControllerRoute(
                   name: "default",
