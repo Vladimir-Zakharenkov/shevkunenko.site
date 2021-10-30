@@ -64,7 +64,12 @@ namespace Site
                 endpoints.MapAreaControllerRoute(
                   name: "Admin_area",
                   areaName: "Admin",
-                  pattern: "Admin/{controller=Home}/{action=Index}");
+                  pattern: "Admin/{controller=TitleOfPage}/{action=Index}");
+
+                endpoints.MapAreaControllerRoute(
+                 name: "Bootstrap5_area",
+                 areaName: "Bootstrap5",
+                 pattern: "Bootstrap5/{controller=Bootstrap}/{action=Index}");
 
                 endpoints.MapControllerRoute(
                   name: "default",

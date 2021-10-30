@@ -1,22 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Site.Models;
 using System.Linq;
+using Site.Areas.Admin.Models;
+
 
 namespace Site.Controllers
 {
     public class SiteController : Controller
     {
-        //private ITitleOfPageRepository repository;
+        private IRepository repository;
 
-        //public SiteController(ITitleOfPageRepository repo)
-        //{
-        //    repository = repo;
+        public SiteController(IRepository repo)
+        {
+            repository = repo;
 
-        //}
-        public IActionResult Shef(uint id)
+        }
+        public IActionResult Shef()
         {
 
-            return View(repository.TitleOfPages.Where(x => x.PageNumber == id).FirstOrDefault());
+            return View();
         }
     }
 }
