@@ -6,11 +6,11 @@ namespace Site.Controllers
 {
     public class TitleOfPageController : Controller
     {
-        private ITitleOfPageRepository repository;
-        public TitleOfPageController(ITitleOfPageRepository repo)
-        {
-            repository = repo;
-        }
+        //private ITitleOfPageRepository repository;
+        //public TitleOfPageController(ITitleOfPageRepository repo)
+        //{
+        //    repository = repo;
+        //}
 
         public IActionResult List(uint id) => View(repository.TitleOfPages.Where(x => x.PageNumber == id));
     }

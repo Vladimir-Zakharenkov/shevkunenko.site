@@ -7,7 +7,8 @@ using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
-using Site.Models;
+//using Site.Models;
+using Site.Areas.Admin.Models;
 
 
 namespace Site
@@ -32,16 +33,17 @@ namespace Site
             services.AddDbContext<TitleOfPageDbContext>(options => options.UseSqlServer(connectionSting));
             */
 
-            services.AddDbContext<TitleOfPageDbContext>(options =>
-               options.UseSqlServer(Configuration["ConnectionStrings:TitleOfPageContext"]));
+            //services.AddDbContext<TitleOfPageDbContext>(options =>
+            //  options.UseSqlServer(Configuration["ConnectionStrings:TitleOfPageContext"]));
 
             #endregion
 
             services.Configure<WebEncoderOptions>(options =>
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
 
+            services.AddSingleton<IRepository, DataRepository>();
             //services.AddTransient<ITitleOfPageRepository, FakeTitleOfPageRepository>();
-            services.AddTransient<ITitleOfPageRepository, EFTitleOfPageRepository>();
+            //services.AddTransient<ITitleOfPageRepository, EFTitleOfPageRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -69,7 +71,7 @@ namespace Site
                   pattern: "{controller=Site}/{action=Shef}/{id:int:min(1):max(5)=1}");
             });
 
-            SeedData.EnsurePopulated(app);
+            //SeedData.EnsurePopulated(app);
         }
     }
 }

@@ -6,13 +6,13 @@ namespace Site.Controllers
 {
     public class SiteController : Controller
     {
-        private ITitleOfPageRepository repository;
+        //private ITitleOfPageRepository repository;
 
-        public SiteController(ITitleOfPageRepository repo)
-        {
-            repository = repo;
+        //public SiteController(ITitleOfPageRepository repo)
+        //{
+        //    repository = repo;
 
-        }
+        //}
         public IActionResult Shef(uint id)
         {
 

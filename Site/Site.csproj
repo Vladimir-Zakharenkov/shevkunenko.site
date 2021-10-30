@@ -7,13 +7,30 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Controllers\SiteController.cs" />
+	  <Compile Remove="Controllers\TitleOfPageController.cs" />
+	  <Compile Remove="Models\EFTitleOfPageRepository.cs" />
+	  <Compile Remove="Models\FakeTitleOfPageRepository.cs" />
+	  <Compile Remove="Models\ITitleOfPageRepository.cs" />
+	  <Compile Remove="Models\SeedData.cs" />
+	  <Compile Remove="Models\TitleOfPage.cs" />
+	  <Compile Remove="Models\TitleOfPageDbContext.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Remove="Views\TitleOfPage\List.cshtml" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Content Update="appsettings.json" CopyToPublishDirectory="Never" />
 		<Content Update="appsettings.Development.json" CopyToPublishDirectory="Never" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Folder Include="Areas\Admin\Data\" />
-		<Folder Include="Areas\Admin\Models\" />
+		<Folder Include="Controllers\" />
+		<Folder Include="Models\" />
+		<Folder Include="Views\TitleOfPage\" />
 		<Folder Include="wwwroot\" />
 	</ItemGroup>
 
