@@ -7,7 +7,6 @@ using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
-//using Site.Models;
 using Site.Areas.Admin.Models;
 
 
@@ -27,13 +26,11 @@ namespace Site
 
             #region connectionSting
 
-            /*
             string connectionSting = Configuration.GetConnectionString("TitleOfPageContext");
 
-            services.AddDbContext<TitleOfPageDbContext>(options => options.UseSqlServer(connectionSting));
-            */
+            services.AddDbContext<TitleOfPageContext>(options => options.UseSqlServer(connectionSting));
 
-            //services.AddDbContext<TitleOfPageDbContext>(options =>
+            //services.AddDbContext<TitleOfPageContext>(options =>
             //  options.UseSqlServer(Configuration["ConnectionStrings:TitleOfPageContext"]));
 
             #endregion
@@ -41,7 +38,10 @@ namespace Site
             services.Configure<WebEncoderOptions>(options =>
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
 
-            services.AddSingleton<IRepository, DataRepository>();
+            //services.AddSingleton<IRepository, DataRepository>();
+            services.AddTransient<IRepository, DataRepository>();
+
+
             //services.AddTransient<ITitleOfPageRepository, FakeTitleOfPageRepository>();
             //services.AddTransient<ITitleOfPageRepository, EFTitleOfPageRepository>();
         }

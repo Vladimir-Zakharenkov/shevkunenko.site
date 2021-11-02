@@ -4,11 +4,24 @@ namespace Site.Areas.Admin.Models
 {
     public class DataRepository : IRepository
     {
-        private List<TitleOfPage> data = new();
-        public IEnumerable<TitleOfPage> TitleOfPages => data;
+        /* Код для временного хранения данных */
+
+        //private List<TitleOfPage> data = new();
+        //public IEnumerable<TitleOfPage> TitleOfPages => data;
+        //public void AddTitleOfPage(TitleOfPage titleOfPage)
+        //{
+        //    this.data.Add(titleOfPage);
+        //}
+
+        /* Код для Entity Framework */
+
+        private TitleOfPageContext context;
+        public DataRepository(TitleOfPageContext ctx) => context = ctx;
+        public IEnumerable<TitleOfPage> TitleOfPages => context.TitleOfPages;
         public void AddTitleOfPage(TitleOfPage titleOfPage)
         {
-            this.data.Add(titleOfPage);
+            context.TitleOfPages.Add(titleOfPage);
+            context.SaveChanges();
         }
     }
 }
