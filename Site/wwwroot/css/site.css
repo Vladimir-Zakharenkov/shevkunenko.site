@@ -1,3 +1,15 @@
 ﻿.selector-for-some-widget {
     box-sizing: content-box;
 }
+
+.placeholder {
+    visibility: collapse;
+    display: none;
+}
+
+    .placeholder:only-child {
+        visibility: visible;
+        display: flex;
+        background-color: white;
+        opacity: 1;
+    }
