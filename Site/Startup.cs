@@ -26,9 +26,9 @@ namespace Site
 
             #region connectionSting
 
-            string connectionSting = Configuration.GetConnectionString("TitleOfPageContext");
+            //string connectionSting = Configuration.GetConnectionString("TitleOfPageContext");
 
-            services.AddDbContext<TitleOfPageContext>(options => options.UseSqlServer(connectionSting));
+            //services.AddDbContext<TitleOfPageContext>(options => options.UseSqlServer(connectionSting));
 
             //services.AddDbContext<TitleOfPageContext>(options =>
             //  options.UseSqlServer(Configuration["ConnectionStrings:TitleOfPageContext"]));
@@ -39,7 +39,7 @@ namespace Site
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
 
             //services.AddSingleton<IRepository, DataRepository>();
-            services.AddTransient<IRepository, DataRepository>();
+            services.AddTransient<ITitleOfPageRepository, FakeTitleOfPageRepository>();
 
 
             //services.AddTransient<ITitleOfPageRepository, FakeTitleOfPageRepository>();
@@ -64,7 +64,7 @@ namespace Site
                 endpoints.MapAreaControllerRoute(
                   name: "Admin_area",
                   areaName: "Admin",
-                  pattern: "Admin/{controller=TitleOfPage}/{action=Index}");
+                  pattern: "Admin/{controller=TitleOfPage}/{action=List}/{id?}");
 
                 endpoints.MapAreaControllerRoute(
                  name: "Bootstrap5_area",

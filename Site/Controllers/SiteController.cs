@@ -7,17 +7,15 @@ namespace Site.Controllers
 {
     public class SiteController : Controller
     {
-        private IRepository repository;
+        private ITitleOfPageRepository repository;
 
-        public SiteController(IRepository repo)
+        public SiteController(ITitleOfPageRepository repo)
         {
             repository = repo;
-
         }
-        public IActionResult Shef()
+        public IActionResult Shef(int id)
         {
-
-            return View();
+            return View(repository.TitleOfPages.Where(p => p.PageNumber == id).FirstOrDefault());
         }
     }
 }

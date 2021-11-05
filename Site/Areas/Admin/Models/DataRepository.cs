@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Site.Areas.Admin.Models
 {
-    public class DataRepository : IRepository
+    public class DataRepository : ITitleOfPageRepository
     {
         /* Код для временного хранения данных */
 
@@ -17,7 +18,10 @@ namespace Site.Areas.Admin.Models
 
         private TitleOfPageContext context;
         public DataRepository(TitleOfPageContext ctx) => context = ctx;
-        public IEnumerable<TitleOfPage> TitleOfPages => context.TitleOfPages;
+        //public IQueryable<TitleOfPage> TitleOfPages => context.TitleOfPages.ToArray();
+
+        IQueryable<TitleOfPage> ITitleOfPageRepository.TitleOfPages => throw new System.NotImplementedException();
+
         public void AddTitleOfPage(TitleOfPage titleOfPage)
         {
             context.TitleOfPages.Add(titleOfPage);

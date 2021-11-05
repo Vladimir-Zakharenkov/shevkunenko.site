@@ -1,0 +1,12 @@
+﻿@model IEnumerable<TitleOfPage>
+
+@foreach (var p in Model)
+{
+    <div>
+        <p>@p.TitleOfPageId</p>
+        <p>@p.Title</p>
+        <p>@p.PageNumber</p>
+        <p>@p.Description</p>
+        <p>@p.KeyWords</p>
+    </div>
+}
