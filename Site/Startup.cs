@@ -72,7 +72,7 @@ namespace Site
                   pattern: "{controller=Site}/{action=Shef}/{id:int:min(1):max(5)=1}");
             });
 
-            //SeedData.EnsurePopulated(app);
+            SeedData.EnsurePopulated(app);
         }
     }
 }

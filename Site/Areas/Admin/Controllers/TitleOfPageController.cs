@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Site.Areas.Admin.Models;
+using System.Linq;
 
 namespace Site.Areas.Admin.Controllers
 {
@@ -13,7 +14,7 @@ namespace Site.Areas.Admin.Controllers
 
         public IActionResult Index() => View(repository.TitleOfPages);
 
-        public IActionResult List() => View(repository.TitleOfPages);
+        public IActionResult List() => View(repository.TitleOfPages.OrderBy(p => p.PageNumber));
 
         //[HttpPost]
         //public IActionResult AddTitleOfPage(TitleOfPage titleOfPage)
