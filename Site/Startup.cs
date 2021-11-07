@@ -26,9 +26,9 @@ namespace Site
 
             #region connectionSting
 
-            //string connectionSting = Configuration.GetConnectionString("TitleOfPageContext");
+            string connectionSting = Configuration.GetConnectionString("TitleOfPageContext");
 
-            //services.AddDbContext<TitleOfPageContext>(options => options.UseSqlServer(connectionSting));
+            services.AddDbContext<TitleOfPageContext>(options => options.UseSqlServer(connectionSting));
 
             //services.AddDbContext<TitleOfPageContext>(options =>
             //  options.UseSqlServer(Configuration["ConnectionStrings:TitleOfPageContext"]));
@@ -38,12 +38,8 @@ namespace Site
             services.Configure<WebEncoderOptions>(options =>
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
 
-            //services.AddSingleton<IRepository, DataRepository>();
-            services.AddTransient<ITitleOfPageRepository, FakeTitleOfPageRepository>();
-
-
-            //services.AddTransient<ITitleOfPageRepository, FakeTitleOfPageRepository>();
-            //services.AddTransient<ITitleOfPageRepository, EFTitleOfPageRepository>();
+            // services.AddTransient<ITitleOfPageRepository, FakeTitleOfPageRepository>();
+            services.AddTransient<ITitleOfPageRepository, EFTitleOfPageRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
