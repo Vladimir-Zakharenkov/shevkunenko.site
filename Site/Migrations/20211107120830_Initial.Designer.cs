@@ -10,7 +10,7 @@ using Site.Areas.Admin.Models;
 namespace Site.Migrations
 {
     [DbContext(typeof(TitleOfPageContext))]
-    [Migration("20211102214123_Initial")]
+    [Migration("20211107120830_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,9 @@ namespace Site.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KeyWords")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PageNumber")

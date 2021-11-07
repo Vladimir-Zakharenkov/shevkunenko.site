@@ -14,7 +14,8 @@ namespace Site.Migrations
                     TitleOfPageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PageNumber = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    KeyWords = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

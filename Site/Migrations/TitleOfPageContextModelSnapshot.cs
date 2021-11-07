@@ -28,6 +28,9 @@ namespace Site.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("KeyWords")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("PageNumber")
                         .HasColumnType("int");
 
